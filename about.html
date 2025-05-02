@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - YTS Hospital</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background: #111;
+      padding: 20px 40px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .white { color: #fff; }
+    .gold { color: #FFD700; }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 0 auto 50px;
+      max-width: 1000px;
+    }
+
+    .feature-box {
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    .feature-box i {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #FFD700;
+      transition: color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .feature-box h3 {
+      margin: 10px 0;
+      color: #fff;
+      transition: color 0.5s ease-in-out, text-shadow 0.3s ease-in-out;
+    }
+
+    .feature-box p {
+      color: #aaa;
+      font-size: 0.95em;
+      transition: color 0.5s ease-in-out, text-shadow 0.3s ease-in-out;
+    }
+
+    .feature-box:hover i {
+      color: #fff;
+      box-shadow: 0 0 15px #FFD700; /* Glowing effect for icon */
+    }
+
+    .feature-box:hover h3 {
+      color: #FFD700;
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; /* Glowing effect for heading */
+    }
+
+    .feature-box:hover p {
+      color: #ddd;
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; /* Glowing effect for paragraph */
+    }
+
+    .chart-container {
+      width: 95%;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+
+    canvas {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><span class="white">About</span> <span class="gold">Us</span></h1>
+  </header>
+
+  <section class="features">
+    <div class="feature-box">
+      <i class="fas fa-heartbeat"></i>
+      <h3>Emergency Care</h3>
+      <p>Round-the-clock support for all emergencies with skilled professionals.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-user-md"></i>
+      <h3>Qualified Doctors</h3>
+      <p>Our doctors are globally trained with years of experience in patient care.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-clinic-medical"></i>
+      <h3>Modern Facilities</h3>
+      <p>State-of-the-art diagnostic and surgical infrastructure for better outcomes.</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-notes-medical"></i>
+      <h3>Routine Checkups</h3>
+      <p>Preventive care and health screenings to keep you and your family safe.</p>
+    </div>
+  </section>
+
+  <section class="chart-container">
+    <h2 style="text-align:center; color: #fff;">Patient Visits Over Time</h2>
+    <canvas id="lineChart" height="120"></canvas>
+  </section>
+
+  <footer>
+    &copy; 2025 YTS Hospital. All rights reserved.
+  </footer>
+
+  <script>
+    // Click bounce effect
+    document.querySelectorAll('.feature-box').forEach(box => {
+      box.addEventListener('click', () => {
+        box.classList.add('clicked');
+        setTimeout(() => box.classList.remove('clicked'), 400);
+      });
+    });
+
+    const ctx = document.getElementById('lineChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        datasets: [{
+          label: 'Number of Patients',
+          data: [100, 140, 130, 170, 160, 180, 200, 220, 210, 250],
+          borderColor: '#FFD700',
+          backgroundColor: 'rgba(255, 215, 0, 0.2)',
+          tension: 0.4,
+          fill: true,
+          pointBackgroundColor: '#FFD700',
+          pointRadius: 5,
+          pointHoverRadius: 8
+        }]
+      },
+      options: {
+        animation: {
+          duration: 2000,
+          easing: 'easeOutQuart'
+        },
+        responsive: true,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        scales: {
+          x: {
+            ticks: { color: '#ccc' },
+            grid: { color: '#333' }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#ccc' },
+            grid: { color: '#333' }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: '#fff'
+            }
+          },
+          tooltip: {
+            backgroundColor: '#222',
+            titleColor: '#FFD700',
+            bodyColor: '#fff',
+            mode: 'nearest'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

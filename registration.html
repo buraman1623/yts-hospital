@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YTS HOSPITAL</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 30px;
+      background: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span.white {
+      color: #fff;
+    }
+
+    .logo span.red {
+      color: #FFD700;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #FFD700;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #FFD700;
+      transform: scale(1.05);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      color: #FFD700;
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      background: #111;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      width: 200px;
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 9;
+    }
+
+    .mobile-nav a {
+      color: #fff;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      color: #FFD700;
+      transform: scale(1.05);
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      animation: zoomInUp 1.2s ease-out forwards;
+      transition: text-shadow 0.4s ease;
+    }
+
+    h1:hover {
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    }
+
+    @keyframes zoomInUp {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    p {
+      font-size: 18px;
+      color: #ccc;
+      margin-bottom: 40px;
+      transition: color 0.4s ease, transform 0.4s ease, text-shadow 0.4s ease;
+    }
+
+    p:hover {
+      color: #FFD700;
+      transform: scale(1.05);
+      text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+    }
+
+    .info-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .info-box {
+      background: #111;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      width: 280px;
+      padding: 20px;
+      text-align: center;
+      opacity: 0;
+      animation: zoomIn 0.6s ease forwards;
+      cursor: pointer;
+      transition: transform 0.4s ease, background 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+      background: #FFD700;
+      box-shadow: 0 0 15px #FFD700;
+    }
+
+    .info-box i {
+      font-size: 40px;
+      color: #FFD700;
+      margin-bottom: 15px;
+      transition: color 0.6s ease;
+    }
+
+    .info-box:hover i {
+      color: #111;
+    }
+
+    .info-box h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+      transition: color 0.6s ease;
+    }
+
+    .info-box:hover h3 {
+      color: #111;
+    }
+
+    .info-box p {
+      font-size: 14px;
+      color: #ccc;
+      transition: color 0.6s ease;
+    }
+
+    .info-box:hover p {
+      color: #111;
+    }
+
+    .info-box:nth-child(1) { animation-delay: 0.4s; }
+    .info-box:nth-child(2) { animation-delay: 0.6s; }
+    .info-box:nth-child(3) { animation-delay: 0.8s; }
+    .info-box:nth-child(4) { animation-delay: 1s; }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Ensure the logo and text in the header are styled correctly */
+    .white {
+      color: #fff;
+    }
+
+    .red {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="white">YTS</span> <span class="red">HOSPITAL</span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="appointment.html">Appointment</a>
+      <a href="department.html">Department</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <div class="mobile-nav" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="appointment.html">Appointment</a>
+      <a href="department.html">Department</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <h1>
+      <span class="white">WELCOME TO</span>
+      <span class="red"> YTS HOSPITAL</span>
+    </h1>
+    <p>Where health meets care and excellence.</p>
+
+    <div class="info-boxes">
+      <div class="info-box">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Emergency Care</h3>
+        <p>24/7 emergency services for urgent medical needs with expert doctors and staff.</p>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-user-md"></i>
+        <h3>Expert Doctors</h3>
+        <p>Meet our team of highly skilled specialists committed to quality care.</p>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-clinic-medical"></i>
+        <h3>Advanced Facilities</h3>
+        <p>Equipped with modern technologies and state-of-the-art infrastructure.</p>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-notes-medical"></i>
+        <h3>Health Checkups</h3>
+        <p>Regular checkups and diagnostic services for early detection and prevention.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+        mobileMenu.classList.remove('active');
+      }
+    });
+
+    const mobileLinks = document.querySelectorAll('.mobile-nav a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>

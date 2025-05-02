@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - YTS Hospital</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .white { color: #fff; }
+    .red { color: #FFD700; }
+
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px;
+    }
+
+    .contact-form, .contact-info {
+      flex: 1 1 400px;
+      background-color: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+    }
+
+    .contact-form h2,
+    .contact-info h2 {
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .form-group i {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      color: #FFD700;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      border: none;
+      border-radius: 5px;
+      background-color: #111;
+      color: #fff;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid #FFD700;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      padding: 12px 20px;
+      background-color: #FFD700;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6c200;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      color: #ccc;
+    }
+
+    .contact-info i {
+      color: #FFD700;
+      margin-right: 10px;
+    }
+
+    .social-icons a {
+      color: #FFD700;
+      margin-right: 15px;
+      font-size: 1.3em;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      padding: 20px;
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><span class="white">Contact</span> <span class="red">Us</span></h1>
+  </header>
+
+  <section class="contact-container">
+
+    <!-- Contact Form First -->
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form action="#" method="POST">
+        <div class="form-group">
+          <i class="fas fa-user"></i>
+          <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" name="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-phone"></i>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-heading"></i>
+          <input type="text" name="subject" placeholder="Subject" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-comment-dots"></i>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Contact Info Second -->
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><i class="fas fa-phone"></i> +123 456 7890</p>
+      <p><i class="fas fa-envelope"></i> contact@ytshospital.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> 123 Health Blvd, MedCity, Country</p>
+      <p><i class="fas fa-clock"></i> Visiting Hours: Mon - Sat, 9 AM - 7 PM</p>
+      <p><i class="fas fa-ambulance"></i> Emergency: +123 000 9999</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    &copy; 2025 YTS Hospital. All rights reserved.
+  </footer>
+
+</body>
+</html>
